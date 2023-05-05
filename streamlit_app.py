@@ -17,20 +17,26 @@ def query(prompt):
     response = chatbot.chat(prompt)
     return response
 
-user_input = get_text()
+response_container = st.container()
+container = st.container()
+
+with container:
+    user_input = get_text()
+    
 chatbot = hugchat.ChatBot()
 
-if user_input:
-    output = query(user_input)
+with response_container:
+    if user_input:
+        output = query(user_input)
 
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+        st.session_state.past.append(user_input)
+        st.session_state.generated.append(output)
 
-if st.session_state['generated']:
+    if st.session_state['generated']:
 
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+        for i in range(len(st.session_state['generated'])-1, -1, -1):
+            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
 
 
