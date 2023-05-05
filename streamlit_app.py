@@ -13,24 +13,18 @@ def get_text():
     input_text = st.text_input("You: ","Hello, how are you?", key="input")
     return input_text 
 
-def query(input):
-    response = chatbot.chat(input)
+def query(prompt):
+    response = chatbot.chat(prompt)
     return response
 
 user_input = get_text()
 chatbot = hugchat.ChatBot()
 
 if user_input:
-    output = query({
-        "inputs": {
-            "past_user_inputs": st.session_state.past,
-            "generated_responses": st.session_state.generated,
-            "text": user_input,
-        },"parameters": {"repetition_penalty": 1.33},
-    })
+    output = query(user_input)
 
     st.session_state.past.append(user_input)
-    st.session_state.generated.append(output["generated_text"])
+    st.session_state.generated.append(output)
 
 if st.session_state['generated']:
 
