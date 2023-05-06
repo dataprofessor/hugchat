@@ -17,7 +17,7 @@ with st.sidebar:
 if 'generated' not in st.session_state:
     st.session_state['generated'] = ["I'm HugChat, How may I help you?"]
 if 'past' not in st.session_state:
-    st.session_state['past'] = []
+    st.session_state['past'] = ['']
 
 # Location of input/response containers
 input_container = st.container()
