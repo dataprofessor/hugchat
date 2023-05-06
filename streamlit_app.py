@@ -25,7 +25,7 @@ response_container = st.container()
 
 # User input
 def get_text():
-    input_text = st.text_input("You: ", st.session_state.past, key="input")
+    input_text = st.text_input("You: ", "", key="input")
     return input_text
 
 with input_container:
