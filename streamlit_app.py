@@ -2,12 +2,6 @@ import streamlit as st
 from streamlit_chat import message
 from hugchat import hugchat
 
-# Load custom CSS
-def load_css():
-    with open("style.css") as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
-load_css()
-
 with st.sidebar:
     st.title('🤗💬 HugChat App')
     st.markdown('''
