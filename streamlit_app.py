@@ -15,9 +15,9 @@ with st.sidebar:
 
 # Generate empty lists for generated and past values
 if 'generated' not in st.session_state:
-    st.session_state['generated'] = []
+    st.session_state['generated'] = ["I'm HugChat, How may I help you?"]
 if 'past' not in st.session_state:
-    st.session_state['past'] = []
+    st.session_state['past'] = ['Hello']
 
 # Location of input/response containers
 input_container = st.container()
@@ -25,7 +25,7 @@ response_container = st.container()
 
 # User input
 def get_text():
-    input_text = st.text_input("You: ","Hello", key="input")
+    input_text = st.text_input("You: ", st.session_state.past, key="input")
     return input_text
 
 with input_container:
