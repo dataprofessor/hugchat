@@ -9,7 +9,7 @@ with st.sidebar:
     st.title('🤗💬 HugChat App')
     st.markdown('''
     ## About
-    This app is built using:
+    This app is an LLM-powered chatbot built using:
     - [Streamlit](https://streamlit.io/)
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
     
