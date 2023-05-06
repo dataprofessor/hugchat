@@ -23,7 +23,7 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = ['Hi!']
 if 'text_input' not in st.session_state:
-    st.session_state['text_input'] = ['']
+    st.session_state['text_input'] = ['Hi!']
     
 # Location of input/response containers
 input_container = st.container()
