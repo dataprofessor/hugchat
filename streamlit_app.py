@@ -11,19 +11,20 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 def get_text():
-    input_text = st.text_input("You: ","", key="input")
-    return input_text 
+    input_text = st.text_input("You: ","Hello", key="input")
+    return input_text
 def query(prompt):
+    chatbot = hugchat.ChatBot()
     response = chatbot.chat(prompt)
     return response
 
-response_container = st.container()
+# Location of input/response containers
 input_container = st.container()
+response_container = st.container()
 
 with input_container:
     user_input = get_text()
     
-chatbot = hugchat.ChatBot()
 
 with response_container:
     if user_input:
