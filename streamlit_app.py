@@ -4,6 +4,7 @@ from hugchat import hugchat
 
 st.title('🤗💬 HugChat App')
 
+# Generate empty lists for generated and past values
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
 if 'past' not in st.session_state:
@@ -12,7 +13,6 @@ if 'past' not in st.session_state:
 def get_text():
     input_text = st.text_input("You: ","Hello, how are you?", key="input")
     return input_text 
-
 def query(prompt):
     response = chatbot.chat(prompt)
     return response
@@ -37,5 +37,6 @@ with response_container:
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
             message(st.session_state["generated"][i], key=str(i))
 
-
+st.write('Past:', st.session_state['past'])
+st.write('Generated:', st.session_state['generated'])
 
