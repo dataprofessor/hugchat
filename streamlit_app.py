@@ -53,7 +53,7 @@ def query(prompt):
 
 with response_container:
     ## if user_input:
-    if st.session_state['text_input']:
+    if st.session_state.text_input:
         #response = query(user_input)
         #st.session_state.past.append(user_input)
         response = query(st.session_state.text_input)
@@ -65,3 +65,5 @@ with response_container:
         for i in range(len(st.session_state['generated'])):
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
             message(st.session_state["generated"][i], key=str(i))
+
+st.write(st.session_state['text_input'])
