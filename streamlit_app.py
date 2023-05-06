@@ -25,7 +25,7 @@ input_container = st.container()
 colored_header(
     label='',
     description='',
-    color_name='blue-35')
+    color_name='blue-30')
 response_container = st.container()
 
 # User input
