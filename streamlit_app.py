@@ -12,6 +12,8 @@ with st.sidebar:
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
     
     💡 Note: No API key required!
+    
+    Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)
     ''')
 
 # Generate empty lists for generated and past values
