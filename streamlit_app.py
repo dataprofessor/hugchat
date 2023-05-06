@@ -22,6 +22,10 @@ if 'past' not in st.session_state:
 
 # Location of input/response containers
 input_container = st.container()
+colored_header(
+    label='',
+    description='',
+    color_name='blue-70')
 response_container = st.container()
 
 # User input
@@ -31,12 +35,6 @@ def get_text():
 
 with input_container:
     user_input = get_text()
-
-colored_header(
-    label='',
-    description='',
-    color_name='blue-70',
-)
     
 # Response output
 def query(prompt):
