@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_chat import message
 from streamlit_extras.colored_header import colored_header
+from streamlit_extras.add_vertical_space import add_vertical_space
 from hugchat import hugchat
 
 with st.sidebar:
@@ -12,9 +13,9 @@ with st.sidebar:
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
     
     💡 Note: No API key required!
-    
-    Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)
     ''')
+    add_vertical_space(5)
+    st.write('Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)')
 
 # Generate empty lists for generated and past values
 if 'generated' not in st.session_state:
