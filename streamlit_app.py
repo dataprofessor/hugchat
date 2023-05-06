@@ -2,7 +2,14 @@ import streamlit as st
 from streamlit_chat import message
 from hugchat import hugchat
 
-st.sidebar.title('🤗💬 HugChat App')
+with st.sidebar:
+    st.title('🤗💬 HugChat App')
+    st.markdown('''
+    ## About
+    Built using:
+    - [Streamlit](https://streamlit.io/)
+    - [HugChat](https://github.com/Soulter/hugging-chat-api)
+    ''')
 
 # Generate empty lists for generated and past values
 if 'generated' not in st.session_state:
