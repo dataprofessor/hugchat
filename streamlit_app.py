@@ -23,7 +23,7 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = ['']
 if 'text_input' not in st.session_state:
-    st.session_state['text_input'] = ['Hi!']
+    st.session_state['text_input'] = ['']
     
 # Location of input/response containers
 input_container = st.container()
@@ -43,7 +43,7 @@ def text_submit():
 
 with input_container:
     ## user_input = get_text()
-    st.text_input("You: ", "", key="input", on_change=text_submit)
+    st.text_input("You: ", "Hi!", key="input", on_change=text_submit)
     
 # Response output
 def query(prompt):
@@ -53,7 +53,7 @@ def query(prompt):
 
 with response_container:
     ## if user_input:
-    if st.session_state.text_input is not None:
+    if st.session_state.text_input:
         #response = query(user_input)
         #st.session_state.past.append(user_input)
         response = query(st.session_state.text_input)
