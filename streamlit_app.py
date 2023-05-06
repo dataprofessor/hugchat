@@ -22,7 +22,9 @@ if 'generated' not in st.session_state:
     st.session_state['generated'] = ["I'm HugChat, How may I help you?"]
 if 'past' not in st.session_state:
     st.session_state['past'] = ['Hi!']
-
+if 'text_input' not in st.session_state:
+    st.session_state['text_input'] = ['']
+    
 # Location of input/response containers
 input_container = st.container()
 colored_header(
@@ -32,8 +34,11 @@ colored_header(
 response_container = st.container()
 
 # User input
+def text_submit():
+    st.session_state.text_input = st.session_state.input
+    st.session_state.input = ''
 def get_text():
-    input_text = st.text_input("You: ", "", key="input")
+    input_text = st.text_input("You: ", "", key="input", on_change=text_submit)
     return input_text
 
 with input_container:
