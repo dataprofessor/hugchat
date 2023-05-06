@@ -62,7 +62,9 @@ with response_container:
         st.session_state.past.append(st.session_state.text_input)
         st.session_state.generated.append(response)
         
-    if st.session_state['generated']:
+    if st.session_state['generated'] is None:
+        pass
+    else:
         #for i in range(len(st.session_state['generated'])-1, -1, -1):
         for i in range(len(st.session_state['generated'])):
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
