@@ -66,4 +66,3 @@ with response_container:
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
             message(st.session_state["generated"][i], key=str(i))
 
-st.write(st.session_state['text_input'])
