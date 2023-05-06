@@ -6,9 +6,11 @@ with st.sidebar:
     st.title('🤗💬 HugChat App')
     st.markdown('''
     ## About
-    Built using:
+    This app is built using:
     - [Streamlit](https://streamlit.io/)
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
+    
+    💡 Note: No API key required!
     ''')
 
 # Generate empty lists for generated and past values
