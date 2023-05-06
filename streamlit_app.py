@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_chat import message
 from hugchat import hugchat
 
-st.title('🤗💬 HugChat App')
+st.sidebar.title('🤗💬 HugChat App')
 
 # Generate empty lists for generated and past values
 if 'generated' not in st.session_state:
@@ -39,4 +39,5 @@ with response_container:
             message(st.session_state["generated"][i], key=str(i))
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
+            
 
