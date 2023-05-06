@@ -18,9 +18,9 @@ def query(prompt):
     return response
 
 response_container = st.container()
-container = st.container()
+input_container = st.container()
 
-with container:
+with input_container:
     user_input = get_text()
     
 chatbot = hugchat.ChatBot()
@@ -37,6 +37,4 @@ with response_container:
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
             message(st.session_state["generated"][i], key=str(i))
 
-st.write('Past:', st.session_state['past'])
-st.write('Generated:', st.session_state['generated'])
 
