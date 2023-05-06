@@ -1,4 +1,4 @@
-# 📦 Streamlit App Starter Kit 
+# 🤗💬 HugChat App
 ```
 ⬆️ (Replace above with your app's name)
 ```
@@ -7,7 +7,7 @@ Description of the app ...
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://starter-kit.streamlitapp.com/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hugchat.streamlit.app/)
 
 ## Section Heading
 
