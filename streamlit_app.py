@@ -31,6 +31,12 @@ def get_text():
 with input_container:
     user_input = get_text()
 
+colored_header(
+    label='',
+    description='',
+    color_name='blue-70',
+)
+    
 # Response output
 def query(prompt):
     chatbot = hugchat.ChatBot()
