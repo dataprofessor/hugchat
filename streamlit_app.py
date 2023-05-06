@@ -22,8 +22,8 @@ if 'generated' not in st.session_state:
     st.session_state['generated'] = ["I'm HugChat, How may I help you?"]
 if 'past' not in st.session_state:
     st.session_state['past'] = ['Hi!']
-if 'text_input' not in st.session_state:
-    st.session_state['text_input'] = ['Hi!']
+###if 'text_input' not in st.session_state:
+    ###st.session_state['text_input'] = ['Hi!']
     
 # Location of input/response containers
 input_container = st.container()
@@ -34,16 +34,16 @@ colored_header(
 response_container = st.container()
 
 # User input
-def text_submit():
-    st.session_state.text_input = st.session_state.input
-    st.session_state.input = ''
-##def get_text():
-##    input_text = st.text_input("You: ", "", key="input", on_change=text_submit)
-##    return input_text
+###def text_submit():
+    ###st.session_state.text_input = st.session_state.input
+    ###st.session_state.input = ''
+def get_text():
+    input_text = st.text_input("You: ", "", key="input", on_change=text_submit)
+    return input_text
 
 with input_container:
-    ## user_input = get_text()
-    st.text_input("You: ", "", key="input", on_change=text_submit)
+    user_input = get_text()
+    ###st.text_input("You: ", "", key="input", on_change=text_submit)
     
 # Response output
 def query(prompt):
@@ -52,19 +52,16 @@ def query(prompt):
     return response
 
 with response_container:
-    ## if user_input:
-    if st.session_state.text_input is None:
-        pass
-    else:
-        #response = query(user_input)
-        #st.session_state.past.append(user_input)
-        response = query(st.session_state.text_input)
-        st.session_state.past.append(st.session_state.text_input)
+    if user_input:
+    ###if st.session_state.text_input:
+        response = query(user_input)
+        st.session_state.past.append(user_input)
+        
+        ###response = query(st.session_state.text_input)
+        ###st.session_state.past.append(st.session_state.text_input)
         st.session_state.generated.append(response)
         
-    if st.session_state['generated'] is None:
-        pass
-    else:
+    if st.session_state['generated']:
         #for i in range(len(st.session_state['generated'])-1, -1, -1):
         for i in range(len(st.session_state['generated'])):
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
