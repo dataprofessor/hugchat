@@ -42,7 +42,7 @@ with input_container:
 
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
-def query(prompt):
+def generate_response(prompt):
     chatbot = hugchat.ChatBot()
     response = chatbot.chat(prompt)
     return response
@@ -50,7 +50,7 @@ def query(prompt):
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
     if user_input:
-        response = query(user_input)
+        response = generate_response(user_input)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(response)
         
