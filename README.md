@@ -1,6 +1,6 @@
 # 🤗💬 HugChat App
 ```
-This app is an LLM-powered chatbot built using [Streamlit](https://streamlit.io/) and [HugChat](https://github.com/Soulter/hugging-chat-api).
+This app is an LLM-powered chatbot built using Streamlit and HugChat.
 ```
 
 Description of the app ...
