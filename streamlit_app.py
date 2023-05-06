@@ -52,8 +52,10 @@ def query(prompt):
 
 with response_container:
     if user_input:
-        response = query(user_input)
-        st.session_state.past.append(user_input)
+        #response = query(user_input)
+        #st.session_state.past.append(user_input)
+        response = query(st.session_state.text_input)
+        st.session_state.past.append(st.session_state.text_input)
         st.session_state.generated.append(response)
         
     if st.session_state['generated']:
