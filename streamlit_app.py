@@ -13,6 +13,7 @@ with st.sidebar:
     - [Streamlit](https://streamlit.io/)
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
     - [OpenAssistant/oasst-sft-6-llama-30b-xor](https://huggingface.co/OpenAssistant/oasst-sft-6-llama-30b-xor) LLM model
+    
     💡 Note: No API key required!
     ''')
     add_vertical_space(5)
