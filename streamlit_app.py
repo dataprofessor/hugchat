@@ -44,7 +44,7 @@ with input_container:
     user_input = get_text()
 
 # Response output
-## Function for taking user prompt as input followed by producing AI generated responses by the LLM model
+## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
     chatbot = hugchat.ChatBot()
     response = chatbot.chat(prompt)
