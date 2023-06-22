@@ -13,7 +13,7 @@ with st.sidebar:
     
     st.header('Hugging Face Login')
     hf_email = st.text_input('Enter E-mail:', type='password')
-    hf_pass = st.text_input('Enter password:, type='password')
+    hf_pass = st.text_input('Enter password:', type='password')
     
     st.markdown('''
     ## About
