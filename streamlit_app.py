@@ -3,24 +3,34 @@ from streamlit_chat import message
 from streamlit_extras.colored_header import colored_header
 from streamlit_extras.add_vertical_space import add_vertical_space
 from hugchat import hugchat
+from hugchat.login import Login
 
 st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 
 # Sidebar contents
 with st.sidebar:
     st.title('🤗💬 HugChat App')
+    
+    st.header('Hugging Face Login')
+    st.text_input('Enter username:', type='password')
+    
+    
     st.markdown('''
     ## About
     This app is an LLM-powered chatbot built using:
     - [Streamlit](https://streamlit.io/)
     - [HugChat](https://github.com/Soulter/hugging-chat-api)
     - [OpenAssistant/oasst-sft-6-llama-30b-xor](https://huggingface.co/OpenAssistant/oasst-sft-6-llama-30b-xor) LLM model
-    
-    💡 Note: No API key required!
+
     ''')
     add_vertical_space(5)
     st.write('Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)')
 
+# Hugging Face Login
+sign = Login(email, passwd)
+cookies = sign.login()
+sign.saveCookies()
+    
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
 if 'generated' not in st.session_state:
@@ -46,7 +56,7 @@ with input_container:
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
-    chatbot = hugchat.ChatBot()
+    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
 
