@@ -50,7 +50,7 @@ with input_container:
 
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
-def generate_response(prompt):
+def generate_response(prompt, email, passwd):
     # Hugging Face Login
     sign = Login(email, passwd)
     cookies = sign.login()
@@ -63,7 +63,7 @@ def generate_response(prompt):
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
     if user_input and hf_email and hf_pass:
-        response = generate_response(user_input)
+        response = generate_response(user_input, hf_email, hf_pass)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(response)
         
