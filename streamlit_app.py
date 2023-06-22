@@ -12,8 +12,8 @@ with st.sidebar:
     st.title('🤗💬 HugChat App')
     
     st.header('Hugging Face Login')
-    st.text_input('Enter username:', type='password')
-    
+    hf_email = st.text_input('Enter E-mail:', type='password')
+    hf_pass = st.text_input('Enter password:, type='password')
     
     st.markdown('''
     ## About
@@ -26,11 +26,6 @@ with st.sidebar:
     add_vertical_space(5)
     st.write('Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)')
 
-# Hugging Face Login
-sign = Login(email, passwd)
-cookies = sign.login()
-sign.saveCookies()
-    
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
 if 'generated' not in st.session_state:
@@ -56,13 +51,18 @@ with input_container:
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
+    # Hugging Face Login
+    sign = Login(email, passwd)
+    cookies = sign.login()
+    sign.saveCookies()
+    # Create ChatBot                        
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
 
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
-    if user_input:
+    if user_input and hf_user and hf_pass:
         response = generate_response(user_input)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(response)
