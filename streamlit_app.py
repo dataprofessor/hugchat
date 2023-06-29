@@ -34,7 +34,6 @@ def generate_response(prompt, email, passwd):
 # Prompt for user input and save
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
-
     with st.chat_message("user"):
         st.write(prompt)
 
@@ -45,14 +44,6 @@ if st.session_state.messages[-1]["role"] != "assistant":
         with st.spinner("Thinking..."):
             
             response = generate_response(prompt, hf_email, hf_pass)
-            
-            # Hugging Face Login
-            #sign = Login(hf_email, hf_pass)
-            #cookies = sign.login()
-            #sign.saveCookies()
-            # Create ChatBot                        
-            #chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-            #response = chatbot.chat(prompt)
             
             st.write(response)
             
