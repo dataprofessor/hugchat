@@ -13,10 +13,10 @@ with st.sidebar:
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state['messages'] = [{"role": "assistant", "content": "I'm HugChat, How may I help you?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "I'm HugChat, How may I help you?"}]
 
 # Display existing chat messages
-for message in st.session_state['messages']:
+for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
@@ -33,10 +33,10 @@ def generate_response(prompt, email, passwd):
 
 # Prompt for user input and save
 if prompt := st.chat_input():
-    st.session_state['messages'].append({"role": "user", "content": prompt})
+    st.session_state.messages.append({"role": "user", "content": prompt})
 
 # If last message is not from assistant, we need to generate a new response
-if st.session_state['messages'][-1]["role"] != "assistant":
+if st.session_state.messages[-1]["role"] != "assistant":
     # Call LLM
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
@@ -54,8 +54,8 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             st.write(response)
             
     message = {"role": "assistant", "content": response}
-    st.session_state['messages'].append(message)
+    st.session_state.messages.append(message)
 
 
 
-st.write(st.session_state['messages'])
+st.write(st.session_state.messages)
