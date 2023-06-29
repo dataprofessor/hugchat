@@ -4,10 +4,10 @@ from hugchat.login import Login
 
 # App title
 st.set_page_config(page_title="HugChat - An LLM-powered ChatBot app")
-st.title('🤗💬 HugChat App')
 
 # Hugging Face Credentials
 with st.sidebar:
+    st.title('🤗💬 HugChat App')
     st.header('Hugging Face Login')
     hf_email = st.text_input('Enter E-mail:', type='password')
     hf_pass = st.text_input('Enter password:', type='password')
