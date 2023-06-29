@@ -61,7 +61,7 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             #    messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state['messages']],
             #)
             #response = r.choices[0].message.content
-            response = generate_response(user_input, hf_email, hf_pass)
+            response = generate_response(prompt, hf_email, hf_pass)
             st.write(response)
 
     message = {"role": "assistant", "content": response}
