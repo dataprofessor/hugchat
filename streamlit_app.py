@@ -47,15 +47,10 @@ if st.session_state['messages'][-1]["role"] != "assistant":
                 # callback=(bot.updateTitle, (conversation_id,))
             )
 
-            while not message.web_search_done:
-                time.sleep(0.1)
-            print(message.getWebSearchSteps())
             while not message.isDone():
                 time.sleep(0.1)
-            print(message.getFinalText())
-            # get the stream text instantly
-            print(message.getWebSearchSteps())
-            print(message.getText())
+            st.write(message.getFinalText())
+            st.write(message.getText())
 
             #st.write(response)
 
