@@ -17,11 +17,11 @@ with st.sidebar:
         hf_email = st.text_input('Enter E-mail:', type='password')
         hf_pass = st.text_input('Enter password:', type='password')
 
-# Store AI generated responses
+# Store LLM generated responses
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
 
-# Display existing chat messages
+# Display chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
@@ -34,18 +34,16 @@ def generate_response(prompt_input, email, passwd):
     sign.saveCookies()
     # Create ChatBot                        
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-    response = chatbot.chat(prompt_input)
-    return response
+    return chatbot.chat(prompt_input)
 
-# Prompt for user input and save
+# User-provided prompt
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
 
-# If last message is not from assistant, we need to generate a new response
+# Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
-    # Call LLM
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             response = generate_response(prompt, hf_email, hf_pass) 
