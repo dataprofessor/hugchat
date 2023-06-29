@@ -8,7 +8,7 @@ st.set_page_config(page_title="🤗💬 HugChat Chatbot")
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat Chatbot')
-    if 'EMAIL' in st.secrets:
+    if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
         st.write('Yes!')
     #if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
     #    st.success['HuggingFace Login credentials already provided!']
