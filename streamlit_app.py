@@ -46,7 +46,7 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             r = bot.chat(
                 text=prompt,
                 conversation_id=conv_id,
-                callback=(bot.updateTitle, (conversation_id,))
+                #callback=(bot.updateTitle, (conversation_id,))
             )
             while not r.isDone():
                 time.sleep(0.1)
