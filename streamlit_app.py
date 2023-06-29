@@ -48,7 +48,7 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             )
             while not r.isDone():
                 time.sleep(0.1)
-            response = r.getFinalText()
+            response = r.getText()()
             st.write(response)
 
     message = {"role": "assistant", "content": response}
