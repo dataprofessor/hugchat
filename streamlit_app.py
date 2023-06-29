@@ -40,7 +40,8 @@ if st.session_state['messages'][-1]["role"] != "assistant":
     # Call LLM
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = generate_response(prompt, hf_email, hf_pass)
+            conversation = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
+            response = generate_response(conversation, hf_email, hf_pass)
             
             # Hugging Face Login
             #sign = Login(hf_email, hf_pass)
@@ -49,6 +50,7 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             # Create ChatBot                        
             #chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
             #response = chatbot.chat(prompt)
+            
             st.write(response)
             
     message = {"role": "assistant", "content": response}
