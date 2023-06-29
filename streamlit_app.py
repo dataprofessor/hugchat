@@ -3,14 +3,15 @@ from hugchat import hugchat
 from hugchat.login import Login
 
 # App title
-st.set_page_config(page_title="HugChat - An LLM-powered ChatBot app")
+st.set_page_config(page_title="🤗💬 HugChat Chatbot")
 
 # Hugging Face Credentials
 with st.sidebar:
-    st.title('🤗💬 HugChat App')
-    st.header('Hugging Face Login')
-    hf_email = st.text_input('Enter E-mail:', type='password')
-    hf_pass = st.text_input('Enter password:', type='password')
+    st.title('🤗💬 HugChat Chatbot')
+    if ('hf_email' and 'hf_pass') not in st.secrets:
+        st.header('Hugging Face Login')
+        hf_email = st.text_input('Enter E-mail:', type='password')
+        hf_pass = st.text_input('Enter password:', type='password')
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
