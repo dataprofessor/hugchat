@@ -1,3 +1,2 @@
 streamlit
-hugchat
-streamlit-extras
+hugchat-api
