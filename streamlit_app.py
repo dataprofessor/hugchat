@@ -1,4 +1,5 @@
 import streamlit as st
+import os, time
 from hugchat_api import HuggingChat
 from hugchat_api.utils import formatHistory, formatConversations
 
