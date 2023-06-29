@@ -10,6 +10,8 @@ with st.sidebar:
     st.title('🤗💬 HugChat Chatbot')
     if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
         st.write('Yes!')
+    else:
+        st.write('No!')
     #if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
     #    st.success['HuggingFace Login credentials already provided!']
     #    hf_email = st.secrets['EMAIL']
