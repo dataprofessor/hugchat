@@ -73,16 +73,3 @@ if st.session_state['messages'][-1]["role"] != "assistant":
 
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
-
-##################
-
-#if 'generated' not in st.session_state:
-#    st.session_state['generated'] = ["I'm HugChat, How may I help you?"]
-## past stores User's questions
-#if 'past' not in st.session_state:
-#    st.session_state['past'] = ['Hi!']
-
-# Layout of input/response containers
-#input_container = st.container()
-#colored_header(label='', description='', color_name='blue-30')
-#response_container = st.container()
