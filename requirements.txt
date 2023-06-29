@@ -1,3 +1,2 @@
 streamlit
-langchain
 hugchat
