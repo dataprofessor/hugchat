@@ -1,4 +1,5 @@
 import streamlit as st
+from langchain.chains import ConversationChain
 from hugchat import hugchat
 from hugchat.login import Login
 
