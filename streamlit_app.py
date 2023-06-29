@@ -8,7 +8,7 @@ st.set_page_config(page_title="🤗💬 HugChat Chatbot")
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat Chatbot')
-    if 'hf_email' not in st.secrets:
+    if 'hf_email' not in st.secrets.keys():
         st.success['HuggingFace Login credentials already provided!']
         hf_email = st.secrets['EMAIL']
         hf_pass = st.secrets['PASS']
