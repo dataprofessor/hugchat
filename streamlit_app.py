@@ -35,7 +35,7 @@ def generate_response(prompt, email, passwd):
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    with st.chat_message("assistant"):
+    with st.chat_message("user"):
         st.write(prompt)
 
 # If last message is not from assistant, we need to generate a new response
