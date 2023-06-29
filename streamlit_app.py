@@ -41,7 +41,7 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             conversation_id = bot.createConversation()
             # chat
             message = bot.chat(
-                text="hi",
+                text=prompt,
                 conversation_id=conversation_id,
                 max_tries=2,
                 # callback=(bot.updateTitle, (conversation_id,))
