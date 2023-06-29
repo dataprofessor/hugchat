@@ -37,13 +37,12 @@ if st.session_state['messages'][-1]["role"] != "assistant":
         with st.spinner("Thinking..."):
             # Create ChatBot
             bot = HUG.getBot(email=EMAIL, cookies=cookies)
-            # get all conversations and see one's title
-            conversations = bot.getConversations()
-            conv_id = list(conversations.keys())[0]
+            # create a new conversation
+            conversation_id = bot.createConversation()
             # chat
             r = bot.chat(
                 text=prompt,
-                conversation_id=conv_id,
+                conversation_id=conversation_id,
                 #callback=(bot.updateTitle, (conversation_id,))
             )
             while not r.isDone():
