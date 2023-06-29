@@ -12,6 +12,10 @@ with st.sidebar:
         st.header('Hugging Face Login')
         hf_email = st.text_input('Enter E-mail:', type='password')
         hf_pass = st.text_input('Enter password:', type='password')
+    else:
+        st.success['HuggingFace Login credentials already provided!']
+        hf_email = st.secrets['EMAIL']
+        hf_pass = st.secrets['PASS']
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
