@@ -30,6 +30,7 @@ with st.sidebar:
 # Stores AI generated responses
 if "messages" not in st.session_state.keys():
     st.session_state['messages'] = [{"role": "assistant", "content": "I'm HugChat, How may I help you?"}]
+
 # Prompt for user input and save
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -49,14 +50,6 @@ def generate_response(prompt, email, passwd):
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
-
-# User input
-## Function for taking user provided prompt as input
-def get_text():
-    input_text = st.text_input("You: ", "", key="input")
-    return input_text
-## Applying the user input box
-user_input = get_text()
 
 # If last message is not from assistant, we need to generate a new response
 if st.session_state['messages'][-1]["role"] != "assistant":
