@@ -66,5 +66,3 @@ if st.session_state['messages'][-1]["role"] != "assistant":
 
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
-
-st.write(st.session_state['messages'])
