@@ -35,15 +35,13 @@ def generate_response(prompt, email, passwd):
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-conversation = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
-
 # If last message is not from assistant, we need to generate a new response
 if st.session_state['messages'][-1]["role"] != "assistant":
     # Call LLM
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             
-            response = generate_response(conversation, hf_email, hf_pass)
+            response = generate_response(prompt, hf_email, hf_pass)
             
             # Hugging Face Login
             #sign = Login(hf_email, hf_pass)
@@ -58,4 +56,3 @@ if st.session_state['messages'][-1]["role"] != "assistant":
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
 
-st.write(conversation)
