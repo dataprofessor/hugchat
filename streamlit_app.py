@@ -45,10 +45,20 @@ if st.session_state['messages'][-1]["role"] != "assistant":
                 max_tries=2,
                 # callback=(bot.updateTitle, (conversation_id,))
             )
-            response = message.getFinalText()
-            st.write(response)
+
+            while not message.web_search_done:
+                time.sleep(0.1)
+            print(message.getWebSearchSteps())
+            while not message.isDone():
+                time.sleep(0.1)
+            print(message.getFinalText())
+            # get the stream text instantly
+            print(message.getWebSearchSteps())
+            print(message.getText())
+
+            #st.write(response)
 
     #message = {"role": "assistant", "content": response}
     #st.session_state.messages.append(message)
 
-st.write(message)
+
