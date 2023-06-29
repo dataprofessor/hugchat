@@ -56,8 +56,7 @@ def get_text():
     input_text = st.text_input("You: ", "", key="input")
     return input_text
 ## Applying the user input box
-with input_container:
-    user_input = get_text()
+user_input = get_text()
 
 # If last message is not from assistant, we need to generate a new response
 if st.session_state['messages'][-1]["role"] != "assistant":
