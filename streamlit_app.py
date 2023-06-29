@@ -46,8 +46,8 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             cookies = sign.login()
             sign.saveCookies()
             # Create ChatBot                        
-            chatbot = hugchat.ChatBot(cookies=cookies.get_dict(), use_cache=True)
-            response = chatbot.chat(prompt)
+            chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+            response = chatbot.chat(prompt, use_cache=True)
             st.write(response)
 
     message = {"role": "assistant", "content": response}
