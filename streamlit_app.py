@@ -40,8 +40,6 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             # get all conversations and see one's title
             conversations = bot.getConversations()
             conv_id = list(conversations.keys())[0]
-            # get all chat histories by conversation_id
-            histories = bot.getHistoriesByID(conversation_id=conv_id)
             # chat
             r = bot.chat(
                 text=prompt,
@@ -56,4 +54,3 @@ if st.session_state['messages'][-1]["role"] != "assistant":
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
 
-st.write(st.session_state.messages)
