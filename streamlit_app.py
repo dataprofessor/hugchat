@@ -46,6 +46,8 @@ if st.session_state['messages'][-1]["role"] != "assistant":
                 max_tries=2,
                 # callback=(bot.updateTitle, (conversation_id,))
             )
+            while not r.isDone():
+                time.sleep(0.1)
             response = r.getFinalText()
             st.write(response)
 
