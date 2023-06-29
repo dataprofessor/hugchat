@@ -1,6 +1,6 @@
 import streamlit as st
-from hugchat import hugchat
-from hugchat.login import Login
+from hugchat_api import HuggingChat
+from hugchat_api.utils import formatHistory, formatConversations
 
 st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 st.title('🤗💬 HugChat App')
@@ -8,8 +8,13 @@ st.title('🤗💬 HugChat App')
 # Hugging Face Credentials
 with st.sidebar:
     st.header('Hugging Face Login')
-    hf_email = st.text_input('Enter E-mail:', type='password')
-    hf_pass = st.text_input('Enter password:', type='password')
+    EMAIL = st.text_input('Enter E-mail:', type='password')
+    PASSWD = st.text_input('Enter password:', type='password')
+    COOKIE_STORE_PATH = "./usercookies"
+    HUG = HuggingChat(max_thread=1)
+    # initialize sign in funciton
+    sign = HUG.getSign(EMAIL, PASSWD)   
+    cookies = sign.login(save=True, cookie_dir_path=COOKIE_STORE_PATH)
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
@@ -20,17 +25,6 @@ for message in st.session_state['messages']:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-# Function for generating LLM response
-#def generate_response(prompt, email, passwd):
-#    # Hugging Face Login
-#    sign = Login(email, passwd)
-#    cookies = sign.login()
-#    sign.saveCookies()
-#    # Create ChatBot                        
-#    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-#    response = chatbot.chat(prompt)
-#    return response
-
 # Prompt for user input and save
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -40,14 +34,18 @@ if st.session_state['messages'][-1]["role"] != "assistant":
     # Call LLM
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            #response = generate_response(prompt, hf_email, hf_pass)
-            # Hugging Face Login
-            sign = Login(hf_email, hf_pass)
-            cookies = sign.login()
-            sign.saveCookies()
-            # Create ChatBot                        
-            chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-            response = chatbot.chat(prompt)
+            # Create ChatBot
+            bot = HUG.getBot(email=EMAIL, cookies=cookies)
+            # create a new conversation
+            conversation_id = bot.createConversation()
+            # chat
+            r = bot.chat(
+                text="hi",
+                conversation_id=conversation_id,
+                max_tries=2,
+                # callback=(bot.updateTitle, (conversation_id,))
+            )
+            response = r.getFinalText()
             st.write(response)
 
     message = {"role": "assistant", "content": response}
