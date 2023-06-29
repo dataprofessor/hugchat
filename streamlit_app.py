@@ -8,14 +8,16 @@ st.set_page_config(page_title="🤗💬 HugChat Chatbot")
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat Chatbot')
-    if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
-        st.success['HuggingFace Login credentials already provided!']
-        hf_email = st.secrets['EMAIL']
-        hf_pass = st.secrets['PASS']
-    else:
-        st.header('Hugging Face Login')
-        hf_email = st.text_input('Enter E-mail:', type='password')
-        hf_pass = st.text_input('Enter password:', type='password')
+    if 'EMAIL' in st.secrets:
+        st.write('Yes!')
+    #if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
+    #    st.success['HuggingFace Login credentials already provided!']
+    #    hf_email = st.secrets['EMAIL']
+    #    hf_pass = st.secrets['PASS']
+    #else:
+    #    st.header('Hugging Face Login')
+    #    hf_email = st.text_input('Enter E-mail:', type='password')
+    #    hf_pass = st.text_input('Enter password:', type='password')
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
