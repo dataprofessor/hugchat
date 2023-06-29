@@ -19,7 +19,7 @@ with st.sidebar:
 
 # Store AI generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "I'm HugChat, How may I help you?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
 
 # Display existing chat messages
 for message in st.session_state.messages:
