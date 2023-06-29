@@ -40,18 +40,16 @@ if st.session_state['messages'][-1]["role"] != "assistant":
             # create a new conversation
             conversation_id = bot.createConversation()
             # chat
-            message = bot.chat(
+            r = bot.chat(
                 text=prompt,
                 conversation_id=conversation_id,
                 max_tries=2,
                 # callback=(bot.updateTitle, (conversation_id,))
             )
-            st.write(message.getFinalText())
-            st.write(message.getText())
+            response = r.getFinalText()
+            st.write(response)
 
-            #st.write(response)
-
-    #message = {"role": "assistant", "content": response}
-    #st.session_state.messages.append(message)
+    message = {"role": "assistant", "content": response}
+    st.session_state.messages.append(message)
 
 
