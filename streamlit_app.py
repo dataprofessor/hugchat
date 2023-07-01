@@ -16,8 +16,6 @@ with st.sidebar:
         st.warning('Please enter your credentials!', icon='⚠️')
         hf_email = st.text_input('Enter E-mail:', type='password')
         hf_pass = st.text_input('Enter password:', type='password')
-        if hf_email and hf_pass:
-            st.experimental_rerun()
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
