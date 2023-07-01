@@ -19,7 +19,8 @@ with st.sidebar:
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
             st.success('''Thanks for entering your credentials!
-                        Proceed to entering your prompt message 👉''', icon='✅')
+                        
+                          Proceed to entering your prompt message 👉''', icon='✅')
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
