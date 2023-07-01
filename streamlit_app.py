@@ -31,7 +31,7 @@ def generate_response(prompt_input, email, passwd):
     # Hugging Face Login
     sign = Login(email, passwd)
     cookies = sign.login()
-    #sign.saveCookies()
+    sign.saveCookies()
     # Create ChatBot                        
     #chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     chatbot = hugchat.ChatBot()
