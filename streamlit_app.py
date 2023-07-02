@@ -6,7 +6,7 @@ from hugchat.login import Login
 st.set_page_config(page_title="🤗💬 HugChat")
 
 with st.chat_message("assistant", avatar='🤖'):
-    st.write('Testing ... 1, 2, 3)
+    st.write('Testing ... 1, 2, 3')
 
 # Hugging Face Credentials
 with st.sidebar:
