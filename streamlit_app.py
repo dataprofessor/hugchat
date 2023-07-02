@@ -5,6 +5,11 @@ from hugchat.login import Login
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
+from PIL import Image
+image = Image.open('streamlit.png')
+with st.chat_message("assistant", avatar=image ):
+    st.write('Testing ... 1, 2, 3')
+
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat')
