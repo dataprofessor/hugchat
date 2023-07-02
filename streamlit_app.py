@@ -5,7 +5,7 @@ from hugchat.login import Login
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
-with st.chat_message("assistant", avatar='./app/img/streamlit.png'):
+with st.chat_message("assistant", avatar=st.image('./app/img/streamlit.png') ):
     st.write('Testing ... 1, 2, 3')
 
 # Hugging Face Credentials
