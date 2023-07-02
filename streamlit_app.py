@@ -7,6 +7,8 @@ st.set_page_config(page_title="🤗💬 HugChat")
 
 with st.chat_message("assistant", avatar='https://streamlit.io/images/brand/streamlit-mark-color.png' ):
     st.write('Testing ... 1, 2, 3')
+with st.chat_message("assistant", avatar='streamlit.png' ):
+    st.write('Testing ... 1, 2, 3')
 
 # Hugging Face Credentials
 with st.sidebar:
