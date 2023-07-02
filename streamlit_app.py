@@ -5,8 +5,6 @@ from hugchat.login import Login
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
-st.image('app/img/streamlit.png')
-
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat')
@@ -51,7 +49,7 @@ if prompt := st.chat_input(disabled=not (hf_email and hf_pass)):
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
     #with st.chat_message("assistant"):
-    with st.chat_message("assistant", avatar='app/img/streamlit.png'):
+    with st.chat_message("assistant", avatar='/app/img/streamlit.png'):
         with st.spinner("Thinking..."):
             response = generate_response(prompt, hf_email, hf_pass) 
             st.write(response) 
