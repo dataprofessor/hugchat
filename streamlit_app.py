@@ -1,13 +1,15 @@
 import streamlit as st
 from hugchat import hugchat
 from hugchat.login import Login
+from PIL import Image
 
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
+image = Image.open('streamlit.png')
 with st.chat_message("assistant", avatar='https://streamlit.io/images/brand/streamlit-mark-color.png' ):
     st.write('Testing ... 1, 2, 3')
-with st.chat_message("assistant", avatar='streamlit.png' ):
+with st.chat_message("assistant", avatar=image ):
     st.write('Testing ... 1, 2, 3')
 
 # Hugging Face Credentials
