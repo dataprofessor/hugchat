@@ -5,6 +5,8 @@ from hugchat.login import Login
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
+st.image('app/img/streamlit.png')
+
 # Hugging Face Credentials
 with st.sidebar:
     st.title('🤗💬 HugChat')
