@@ -5,7 +5,7 @@ from hugchat.login import Login
 # App title
 st.set_page_config(page_title="🤗💬 HugChat")
 
-image = 'streamlit.png'
+image = 'app/img/streamlit.png'
 with st.chat_message("assistant", avatar='https://streamlit.io/images/brand/streamlit-mark-color.png' ):
     st.write('Testing ... 1, 2, 3')
 with st.chat_message("assistant", avatar=image ):
