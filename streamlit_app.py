@@ -1,3 +1,11 @@
+"""
+
+# Issues
+
+module 'streamlit' has no attribute 'chat_message'
+
+"""
+
 import streamlit as st
 from hugchat import hugchat
 from hugchat.login import Login
@@ -20,6 +28,8 @@ with st.sidebar:
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
     st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-an-llm-powered-chatbot-with-streamlit/)!')
+
+    st.info(hf_email)
     
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():

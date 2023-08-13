@@ -1,2 +1,2 @@
 streamlit
-hugchat==0.0.8
+hugchat==0.1.0
