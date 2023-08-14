@@ -22,3 +22,26 @@ This app is built using the following Python libraries:
 - [Streamlit](https://streamlit.io/)
 - [HugChat](https://github.com/Soulter/hugging-chat-api)
 - [OpenAssistant/oasst-sft-6-llama-30b-xor](https://huggingface.co/OpenAssistant/oasst-sft-6-llama-30b-xor) LLM model
+
+## Setup
+
+```
+$ git clone git@github.com:wgong/hugchat.git
+$ conda create -n st
+$ conda activate st
+$ pip install -r requirements.txt
+```
+### secrets.toml
+
+```
+EMAIL = ""
+PASS = ""
+```
+Place your login credential for the `https://huggingface.co/` website in the `secrets.toml` file inside the `~/.streamlit/` folder.
+
+## Run
+```
+$ cd hugchat
+$ streamlit run hug_chat.py
+
+```
